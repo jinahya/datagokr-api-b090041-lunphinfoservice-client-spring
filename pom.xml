@@ -57,7 +57,7 @@
     <version.jakarta.xml.bind-api>2.3.3</version.jakarta.xml.bind-api>
     <version.maven-failsafe>${version.maven-surefire}</version.maven-failsafe>
     <version.maven-surefire>3.0.0-M5</version.maven-surefire>
-    <version.org.apache.maven.wagon>3.4.2</version.org.apache.maven.wagon>
+    <version.org.apache.maven.wagon>3.4.3</version.org.apache.maven.wagon>
     <version.org.glassfish.jaxb>2.3.3</version.org.glassfish.jaxb>
     <version.org.projectlombok>1.18.16</version.org.projectlombok>
     <version.org.slf4j>1.7.30</version.org.slf4j>
