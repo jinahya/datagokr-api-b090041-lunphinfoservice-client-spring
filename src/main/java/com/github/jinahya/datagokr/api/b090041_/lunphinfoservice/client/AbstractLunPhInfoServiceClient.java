@@ -116,7 +116,7 @@ public abstract class AbstractLunPhInfoServiceClient {
     @Documented
     @Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER})
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface LrsrCldInfoServiceServiceKey {
+    public @interface LunPhInfoServiceServiceKey {
 
     }
 
@@ -134,7 +134,7 @@ public abstract class AbstractLunPhInfoServiceClient {
     /**
      * A value for {@link #QUERY_PARAM_NAME_SERVICE_KEY}.
      */
-    @LrsrCldInfoServiceServiceKey
+    @LunPhInfoServiceServiceKey
     @Autowired
     @Accessors(fluent = true)
     @Setter(AccessLevel.NONE)

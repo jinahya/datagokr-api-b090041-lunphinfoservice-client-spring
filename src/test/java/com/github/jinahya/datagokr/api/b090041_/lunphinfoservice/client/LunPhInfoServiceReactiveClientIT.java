@@ -85,7 +85,7 @@ abstract class LunPhInfoServiceReactiveClientIT
 
         @LunPhInfoServiceReactiveClient.LunPhInfoServiceWebClient
         @Bean
-        WebClient lrsrCldInfoServiceWebClient(
+        WebClient lunPhInfoServiceWebClient(
                 @LunPhInfoServiceReactiveClient.LunPhInfoServiceWebClient final ClientHttpConnector clientConnector,
                 @LunPhInfoServiceReactiveClient.LunPhInfoServiceWebClient final ExchangeStrategies exchangeStrategies) {
             return WebClient.builder()

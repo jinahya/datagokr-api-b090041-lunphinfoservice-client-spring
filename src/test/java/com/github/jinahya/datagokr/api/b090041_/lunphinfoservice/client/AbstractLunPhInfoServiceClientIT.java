@@ -20,9 +20,9 @@ abstract class AbstractLunPhInfoServiceClientIT<T extends AbstractLunPhInfoServi
     @Configuration
     static class _Configuration {
 
-        @AbstractLunPhInfoServiceClient.LrsrCldInfoServiceServiceKey
+        @AbstractLunPhInfoServiceClient.LunPhInfoServiceServiceKey
         @Bean
-        String lrsrCldInfoServiceServiceKey() {
+        String lunPhInfoServiceServiceKey() {
             return System.getProperty(SYSTEM_PROPERTY_SERVICE_KEY);
         }
 

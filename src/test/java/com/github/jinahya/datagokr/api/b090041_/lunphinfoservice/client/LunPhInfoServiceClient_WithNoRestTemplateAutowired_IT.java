@@ -34,12 +34,12 @@ class LunPhInfoServiceClient_WithNoRestTemplateAutowired_IT
 
         @LunPhInfoServiceClient.LunPhInfoServiceRestTemplate
         @Bean
-        RestTemplate lrsrCldInfoServiceRestTemplate() {
+        RestTemplate lunPhInfoServiceRestTemplate() {
             return null;
         }
 
         @Bean
-        public MethodValidationPostProcessor bean() {
+        public MethodValidationPostProcessor methodValidationPostProcessor() {
             return new MethodValidationPostProcessor();
         }
     }

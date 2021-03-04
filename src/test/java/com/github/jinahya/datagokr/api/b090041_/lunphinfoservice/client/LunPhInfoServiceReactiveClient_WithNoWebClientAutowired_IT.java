@@ -33,7 +33,7 @@ class LunPhInfoServiceReactiveClient_WithNoWebClientAutowired_IT
 
         @LunPhInfoServiceReactiveClient.LunPhInfoServiceWebClient
         @Bean
-        WebClient lrsrCldInfoServiceWebClient() {
+        WebClient lunPhInfoServiceWebClient() {
             return null;
         }
 

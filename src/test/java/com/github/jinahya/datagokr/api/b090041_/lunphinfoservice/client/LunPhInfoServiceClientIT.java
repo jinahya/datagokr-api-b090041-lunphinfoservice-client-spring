@@ -28,7 +28,7 @@ class LunPhInfoServiceClientIT
 
         @LunPhInfoServiceClient.LunPhInfoServiceRestTemplate
         @Bean
-        RestTemplate lrsrCldInfoServiceRestTemplate() {
+        RestTemplate lunPhInfoServiceRestTemplate() {
             return new RestTemplateBuilder()
                     .additionalCustomizers(
                             t -> {
