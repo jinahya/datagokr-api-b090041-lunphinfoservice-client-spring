@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit.jupiter.EnabledIf;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.scheduler.Scheduler;
@@ -37,7 +38,7 @@ class LunPhInfoServiceReactiveClient_WithNoWebClientAutowired_IT
         }
 
         @Bean
-        public MethodValidationPostProcessor bean() {
+        public MethodValidationPostProcessor methodValidationPostProcessor() {
             return new MethodValidationPostProcessor();
         }
     }
@@ -61,6 +62,7 @@ class LunPhInfoServiceReactiveClient_WithNoWebClientAutowired_IT
      * Invokes {@link LunPhInfoServiceReactiveClient#getLunPhInfo(Year, int, Scheduler)} method with current year and
      * asserts all items' {@code solYear} property equals to specified.
      */
+    @EnabledIf("#{systemProperties['" + SYSTEM_PROPERTY_SERVICE_KEY + "'] != null}")
     @Test
     void getLunPhInfo_SolarYearEquals_() {
         final Year year = Year.now();

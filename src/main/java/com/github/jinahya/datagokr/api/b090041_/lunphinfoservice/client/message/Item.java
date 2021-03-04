@@ -81,26 +81,15 @@ public class Item implements Serializable {
      * @return the string representation of this object.
      */
     @Override
-    public String toString() {
-        return super.toString() + '{'
-               + "solYear=" + solYear
-               + ",solMonth=" + solMonth
-               + ",solDay=" + solDay
-               + ",solWeek=" + solWeek
-               + ",lunAge=" + lunAge
-               + '}';
-    }
-
-    @Override
     public boolean equals(final Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         final Item that = (Item) obj;
-        return Float.compare(that.lunAge, lunAge) == 0
-               && Objects.equals(solYear, that.solYear)
+        return Objects.equals(solYear, that.solYear)
                && solMonth == that.solMonth
                && Objects.equals(solDay, that.solDay)
-               && solWeek == that.solWeek;
+               && solWeek == that.solWeek
+               && Objects.equals(lunAge, that.lunAge);
     }
 
     @Override
@@ -178,7 +167,7 @@ public class Item implements Serializable {
     @JsonProperty(required = true)
     @NotNull
     @XmlJavaTypeAdapter(MmMonthAdapter.class)
-    @XmlSchemaType(name = "token")
+    @XmlSchemaType(name = "token") // '01'
     @XmlElement(required = true)
     private Month solMonth;
 
@@ -187,7 +176,7 @@ public class Item implements Serializable {
     @Min(MIN_SOL_DAY)
     @NotNull
     @XmlJavaTypeAdapter(Format02dIntegerAdapter.class)
-    @XmlSchemaType(name = "token")
+    @XmlSchemaType(name = "token") // '01'
     @XmlElement(required = true)
     private Integer solDay;
 
@@ -195,13 +184,14 @@ public class Item implements Serializable {
     @JsonSerialize(using = SolWeekSerializer.class)
     @NotNull
     @XmlJavaTypeAdapter(SolWeekWeekAdapter.class)
-    @XmlSchemaType(name = "token")
+    @XmlSchemaType(name = "token") // '월', '화', ...
     @XmlElement(required = true)
     private DayOfWeek solWeek;
 
     @JsonProperty(required = true)
+    //@NotNull // 지원하지 않는 일자에 대해서는 element 가 없는 채로 반환된다.
     @PositiveOrZero
     @XmlSchemaType(name = "float")
-    @XmlElement(required = true)
-    private float lunAge;
+    @XmlElement
+    private Float lunAge;
 }
